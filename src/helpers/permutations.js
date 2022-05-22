@@ -5,11 +5,9 @@
  * https://www.youtube.com/watch?v=xghJNlMibX4
  * https://gist.github.com/angle943/9a1d4e304b02a6f0579c455eb0dda0d2
  * https://en.wikipedia.org/wiki/Heap%27s_algorithm
- *
- * Modified to get result in lexicographic order.
  */
 
-export const getPermutations = (arr) => {
+export const heapPermutations = (arr) => {
   const output = [];
 
   const swapInPlace = (arrToSwap, indexA, indexB) => {
@@ -22,7 +20,7 @@ export const getPermutations = (arr) => {
 
   const generate = (n, heapArr) => {
     if (n === 1) {
-      output.push(heapArr.slice().reverse());
+      output.push(heapArr.slice());
       return;
     }
 
@@ -39,11 +37,11 @@ export const getPermutations = (arr) => {
     }
   };
 
-  generate(arr.length, arr.slice().reverse());
+  generate(arr.length, arr.slice());
 
   return output;
 };
 
 export default {
-  getPermutations
+  heapPermutations
 };

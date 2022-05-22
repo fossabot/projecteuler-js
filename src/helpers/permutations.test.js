@@ -1,37 +1,44 @@
-import { getPermutations } from './index.js';
+import { heapPermutations } from './index.js';
 
 describe('permutations', () => {
   it('some permutations', () => {
-    expect.assertions(4);
+    expect.assertions(2);
 
-    console.log(getPermutations(['a', 'b']));
+    // console.log(heapPermutations(['a', 'b']));
 
-    expect(getPermutations(['a', 'b'])).toStrictEqual([
-      ['a', 'b'],
-      ['b', 'a']
+    expect(heapPermutations(['A', 'B'])).toStrictEqual([
+      ['A', 'B'],
+      ['B', 'A']
     ]);
 
-    expect(getPermutations([1, 2])).toStrictEqual([
-      [1, 2],
-      [2, 1]
-    ]);
+    expect(heapPermutations(['A', 'B', 'C', 'D'])).toStrictEqual([
+      ['A', 'B', 'C', 'D'],
+      ['B', 'A', 'C', 'D'],
+      ['C', 'A', 'B', 'D'],
+      ['A', 'C', 'B', 'D'],
+      ['B', 'C', 'A', 'D'],
+      ['C', 'B', 'A', 'D'],
 
-    expect(getPermutations([1, 2, 3])).toStrictEqual([
-      [1, 2, 3],
-      [1, 3, 2],
-      [2, 3, 1],
-      [2, 1, 3],
-      [3, 1, 2],
-      [3, 2, 1]
-    ]);
+      ['D', 'B', 'A', 'C'],
+      ['B', 'D', 'A', 'C'],
+      ['A', 'D', 'B', 'C'],
+      ['D', 'A', 'B', 'C'],
+      ['B', 'A', 'D', 'C'],
+      ['A', 'B', 'D', 'C'],
 
-    expect(getPermutations(['a', 'b', 'c'])).toStrictEqual([
-      ['a', 'b', 'c'],
-      ['a', 'c', 'b'],
-      ['b', 'c', 'a'],
-      ['b', 'a', 'c'],
-      ['c', 'a', 'b'],
-      ['c', 'b', 'a']
+      ['A', 'C', 'D', 'B'],
+      ['C', 'A', 'D', 'B'],
+      ['D', 'A', 'C', 'B'],
+      ['A', 'D', 'C', 'B'],
+      ['C', 'D', 'A', 'B'],
+      ['D', 'C', 'A', 'B'],
+
+      ['D', 'C', 'B', 'A'],
+      ['C', 'D', 'B', 'A'],
+      ['B', 'D', 'C', 'A'],
+      ['D', 'B', 'C', 'A'],
+      ['C', 'B', 'D', 'A'],
+      ['B', 'C', 'D', 'A']
     ]);
   });
 });
